@@ -10,9 +10,10 @@
  */
 namespace Piwik\Plugins\cacheBuster;
 
-use Piwik;
+use Piwik\Common;
+use Piwik\Notification;
+use Piwik\Piwik;
 use Piwik\Url;
-use Piwik\View;
 
 /**
  *
@@ -34,17 +35,23 @@ class Controller extends \Piwik\Plugin\Controller
 		$dir = explode(SEPARATOR, $_SERVER['SCRIPT_FILENAME']);
 		array_pop($dir);
 		$dir = implode(SEPARATOR, $dir);
-		$directories = glob($dir.SEPARATOR.'tmp'.SEPARATOR.'*' , GLOB_ONLYDIR);
+		$dirs = glob($dir.SEPARATOR.'tmp'.SEPARATOR.'*' , GLOB_ONLYDIR);
 				
 		for($i=0; $i < sizeof($dirs); $i++)
 		{
 			if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
 			{
-				system("rmdir ".$directories[$i]." /s /q");
+				system("rmdir ".$dirs[$i]." /s /q");
 			} else {
-				system("rm -rf ".$directories[$i]);
+				system("rm -rf ".$dirs[$i]);
 			}
 		}
+
+        $notification = new Notification('The cache has been cleared');
+		$notification->context = Notification::CONTEXT_SUCCESS;
+		$notification->type = Notification::TYPE_TOAST;
+		Notification\Manager::notify('General_CacheCleared', $notification);
+		
 		Url::redirectToReferrer();
     }
 }

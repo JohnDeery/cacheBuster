@@ -7,6 +7,8 @@ This plugin will clear out the tmp dir of Piwik. Useful for when you are develop
 ## Changelog
 ~2014~
 
+2014-02-21 - Update some more code, added in notification area but it's not quite working yet (TODO - make it work)
+
 2014-02-21 - Rebranded to cacheBuster and set version to 1.0, updated code to use a better check for directory seperator
 
 2014-02-20 - v2.0

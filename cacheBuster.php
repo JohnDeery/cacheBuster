@@ -10,13 +10,8 @@
  */
 namespace Piwik\Plugins\cacheBuster;
 
-use Piwik\Menu\MenuAdmin;
-use Piwik\Option;
 use Piwik\Piwik;
-use Piwik\SettingsPiwik;
 use Piwik\Menu\MenuTop;
-use Piwik\Translate;
-use Piwik\Version;
 
 /**
  * @package cacheBuster
@@ -37,8 +32,8 @@ class cacheBuster extends \Piwik\Plugin
 	{
 		If(Piwik::isUserIsSuperUser())
 		{
-			$urlParams = array('module' => 'Cache Buster', 'action' => 'index');
-    		MenuTop::addEntry('cacheBuster', $urlParams, true, 8, $isHTML = false, $tooltip);
+			$urlParams = array('module' => 'cacheBuster', 'action' => 'index');
+    		MenuTop::addEntry('cacheBuster', $urlParams, true, 8, $isHTML = false);
 		}
 	}
 }
