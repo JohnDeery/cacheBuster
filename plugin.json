@@ -8,7 +8,7 @@
         "tmp"
     ],
     "license": "GPL v3+",
-    "homepage": "https://github.com/JohnDeery/piwik-clearcache-plugin",
+    "homepage": "https://github.com/JohnDeery/piwik_cache_buster/",
     "require": {
         "piwik": ">=2.0.0",
         "php": ">=5.3.0"
