@@ -23,20 +23,11 @@ class Controller extends \Piwik\Plugin\Controller
 {
 	public function index()
     {
-		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
-		{
-			define("SEPARATOR", "\\");
-		}
-		else 
-		{
-			define("SEPARATOR", "/");
-		}
-	
-		$dir = explode(SEPARATOR, $_SERVER['SCRIPT_FILENAME']);
+		$dir = explode(DIRECTORY_SEPARATOR, $_SERVER['SCRIPT_FILENAME']);
 		array_pop($dir);
-		$dir = implode(SEPARATOR, $dir);
-		$dirs = glob($dir.SEPARATOR.'tmp'.SEPARATOR.'*' , GLOB_ONLYDIR);
-				
+		$dir = implode(DIRECTORY_SEPARATOR, $dir);
+		$dirs = glob($dir.DIRECTORY_SEPARATOR.'tmp'.DIRECTORY_SEPARATOR.'*' , GLOB_ONLYDIR);
+
 		for($i=0; $i < sizeof($dirs); $i++)
 		{
 			if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')

@@ -30,7 +30,7 @@ class cacheBuster extends \Piwik\Plugin
 	
 	public function addTopMenu()
 	{
-		If(Piwik::isUserIsSuperUser())
+		if(Piwik::hasUserSuperUserAccess())
 		{
 			$urlParams = array('module' => 'cacheBuster', 'action' => 'index');
     		MenuTop::addEntry('cacheBuster', $urlParams, true, 8, $isHTML = false);
