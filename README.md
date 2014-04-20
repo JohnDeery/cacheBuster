@@ -7,6 +7,8 @@ This plugin will clear out the tmp dir of Piwik. Useful for when you are develop
 ## Changelog
 ~2014~
 
+2014-04-20 - Updated the plugin.json to (hopefully) fix the homepage url for display on plugins.piwik.org. Happy Easter!
+
 2014-04-19 - Updated to work with 2.2.0. Removed the custom directory separator code and switch to use the PHP constant.
 
 2014-02-21 - Update some more code, added in notification area but it's not quite working yet (TODO - make it work)
