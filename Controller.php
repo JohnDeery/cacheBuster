@@ -11,6 +11,7 @@
 namespace Piwik\Plugins\cacheBuster;
 
 use Piwik\Common;
+use Piwik\Filesystem;
 use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\Url;
@@ -30,18 +31,16 @@ class Controller extends \Piwik\Plugin\Controller
 
 		for($i=0; $i < sizeof($dirs); $i++)
 		{
-			if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
-			{
-				system("rmdir ".$dirs[$i]." /s /q");
-			} else {
-				system("rm -rf ".$dirs[$i]);
-			}
+			if(strstr($dirs[$i], 'sessions'))
+				continue;
+			Filesystem::unlinkRecursive($dirs[$i], TRUE);
 		}
 
-        $notification = new Notification('The cache has been cleared');
-		$notification->context = Notification::CONTEXT_SUCCESS;
-		$notification->type = Notification::TYPE_TOAST;
-		Notification\Manager::notify('General_CacheCleared', $notification);
+		$notification = new Notification("The cache has been cleared!");
+		//$notification->raw		= true;
+		$notification->context	= Notification::CONTEXT_SUCCESS;
+		$notification->type		= Notification::TYPE_TOAST;
+		Notification\Manager::notify('cacheBuster_CacheCleared', $notification);
 		
 		Url::redirectToReferrer();
     }
