@@ -1,12 +1,10 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Piwik - free/libre analytics platform
  *
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * @category Piwik_Plugins
- * @package ClearCache
  */
 namespace Piwik\Plugins\cacheBuster;
 
@@ -16,10 +14,6 @@ use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\Url;
 
-/**
- *
- * @package ClearCache
- */
 class Controller extends \Piwik\Plugin\Controller
 {
 	public function index()
