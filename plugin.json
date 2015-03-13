@@ -1,6 +1,6 @@
 {
     "name": "cacheBuster",
-    "version": "1.4",
+    "version": "1.4.1",
     "description": "Clears all temporary cache files",
     "keywords": [
         "cache",
