@@ -8,12 +8,16 @@
  */
 namespace Piwik\Plugins\cacheBuster;
 
+use Piwik\Piwik;
 use Piwik\Menu\MenuTop;
 
 class Menu extends \Piwik\Plugin\Menu
 {
     public function configureTopMenu(MenuTop $menu)
     {
-        $menu->addItem('cacheBuster', null, $this->urlForDefaultAction(), $orderId = 30);
+		if(Piwik::hasUserSuperUserAccess())
+ 		{
+			$menu->addItem('cacheBuster_cacheBuster', null, $this->urlForDefaultAction(), $orderId = 30);
+		}
     }
 }

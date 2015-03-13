@@ -7,6 +7,7 @@ This plugin will clear out the tmp dir of Piwik. Useful for when you are develop
 ## Changelog
 ~2015~
 
+2015-03-12 - Updated because I left out the call to Piwik::hasUserSuperUserAccess(). Also added translations because why not. If they are not accurate, please let me know what I should use as these came straight from google translate.
 2015-03-12 - Updated to work with the latest menu calls. Thanks to mnapoli for pointing out the issue
 
 
