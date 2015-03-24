@@ -34,7 +34,7 @@ class Controller extends \Piwik\Plugin\Controller
 		$notification = new Notification($translatedText);
 		$notification->context	= Notification::CONTEXT_SUCCESS;
 		$notification->type		= Notification::TYPE_TOAST;
-		Notification\Manager::notify('cacheBuster_CacheCleared', $notification);
+		Notification\Manager::notify('cacheBuster_CacheCleared_uniquer', $notification);
 		
 		Url::redirectToReferrer();
     }
